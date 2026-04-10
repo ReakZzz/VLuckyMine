@@ -1,0 +1,24 @@
+name: V-LuckyMine
+version: '${project.version}'
+main: com.luckymine.LuckyMine
+api-version: '1.21'
+description: Spawn lucky chests when mining blocks!
+authors: [ reakkz ]
+
+commands:
+  luckymine:
+    description: Main V-LuckyMine command
+    usage: /luckymine <menu|reload|createnbt|cancel>
+    aliases: [ lm ]
+    permission: luckymine.admin
+    # Empty string = no message shown to players without permission
+    # This also hides the command from /help and tab-complete for non-ops
+    permission-message: ''
+
+permissions:
+  luckymine.admin:
+    description: Access to all V-LuckyMine commands
+    default: op
+  luckymine.lucky:
+    description: Allows player to trigger lucky chest spawns
+    default: true

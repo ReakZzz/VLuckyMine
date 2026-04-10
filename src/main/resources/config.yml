@@ -1,0 +1,67 @@
+# ╔════════════════════════════════════════╗
+# ║       LuckyMine - Settings             ║
+# ╚════════════════════════════════════════╝
+# Loot tables and block chances are in loot.yml
+
+# How long (in ticks) the lucky chest stays before disappearing
+# 20 ticks = 1 second  |  default: 200 = 10 seconds
+chest-despawn-ticks: 200
+
+# If true, Silk Touch pickaxes can trigger lucky chests.
+# If false, Silk Touch mining will NOT spawn a lucky chest.
+silk-touch: false
+
+# Prefix shown in plugin messages
+prefix: '&6[&eV-LuckyMine&6] &r'
+
+# ─────────────────────────────────────────
+# Messages
+# Supports & color codes. Available placeholders:
+#   {prefix}  → the prefix value above
+#   {key}     → NBT key name
+#   {count}   → number of items saved
+#   {blocks}  → number of configured blocks
+#   {nbt}     → number of configured NBT tables
+# ─────────────────────────────────────────
+messages:
+  chest-found:               '{prefix}&aYou found a &6Lucky Chest&a! Open it fast — it won''t last long!'
+  no-permission:             '{prefix}&cYou do not have permission to use this command.'
+  player-only:               '{prefix}&cThis command can only be used by players.'
+  createnbt-usage:           '{prefix}&cUsage: &e/luckymine createnbt <nbt_key>'
+  createnbt-usage-example:   '{prefix}&7Example: &e/luckymine createnbt diamond_loot'
+  createnbt-invalid-key:     '{prefix}&cNBT key must only contain lowercase letters, numbers, and underscores.'
+  createnbt-activated:       '{prefix}&eNBT creation mode activated for key: &6''{key}'''
+  createnbt-instructions:    '{prefix}&7Right-click any &fChest &7to open it, fill it with items, then close it to save.'
+  createnbt-cancel-hint:     '{prefix}&7Type &c/luckymine cancel &7to cancel.'
+  createnbt-previous-cancel: '{prefix}&7Previous NBT creation session cancelled.'
+  createnbt-must-click-chest: '{prefix}&cYou must right-click a &eChest&c!'
+  createnbt-fill-chest:      '{prefix}&eFill the chest with items, then &aclose it &eto save as &6''{key}''&e.'
+  createnbt-empty:           '{prefix}&cNo items found in chest. NBT entry &e''{key}''&c was NOT saved.'
+  createnbt-saved:           '{prefix}&aNBT loot table &6''{key}''&a saved with &e{count}&a item type(s)!'
+  cancel-success:            '{prefix}&cNBT creation cancelled.'
+  cancel-not-active:         '{prefix}&7You are not in NBT creation mode.'
+  reload-success:            '{prefix}&aConfiguration reloaded successfully!'
+  reload-stats:              '{prefix}&7Blocks: &e{blocks} &7| NBT tables: &e{nbt}'
+
+# ─────────────────────────────────────────
+# Blocked Worlds
+# The plugin will NOT trigger in these worlds
+# ─────────────────────────────────────────
+blocked-worlds:
+  - world_example_1
+  - world_example_2
+
+# ─────────────────────────────────────────
+# Particles
+# type:  valid Bukkit Particle name → https://jd.papermc.io/paper/1.21/org/bukkit/Particle.html
+# sound: valid Bukkit Sound name    → https://jd.papermc.io/paper/1.21/org/bukkit/Sound.html
+# ─────────────────────────────────────────
+particles:
+  enabled: true
+  type: PORTAL
+  sound: ENTITY_ENDERMAN_TELEPORT
+  count: 20
+  offset-x: 0.3
+  offset-y: 0.5
+  offset-z: 0.3
+  speed: 0.05

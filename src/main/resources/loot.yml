@@ -1,0 +1,87 @@
+# ╔════════════════════════════════════════╗
+# ║       V-LuckyMine - Loot Tables          ║
+# ╚════════════════════════════════════════╝
+# Plugin settings are in config.yml
+
+# ─────────────────────────────────────────
+# NBT Loot Tables
+#
+# structure: which container spawns
+#   Vanilla:  chest | trapped_chest | hopper | barrel | dropper | dispenser
+#   Shulker:  shulker_box | white_shulker_box | orange_shulker_box
+#             magenta_shulker_box | light_blue_shulker_box | yellow_shulker_box
+#             lime_shulker_box | pink_shulker_box | gray_shulker_box
+#             light_gray_shulker_box | cyan_shulker_box | purple_shulker_box
+#             blue_shulker_box | brown_shulker_box | green_shulker_box
+#             red_shulker_box | black_shulker_box
+#   Copper*:  copper_chest | exposed_copper_chest
+#             weathered_copper_chest | oxidized_copper_chest
+#   * Copper chests require a mod/datapack — falls back to chest on vanilla.
+#   The container always faces toward the player who mined the block.
+#
+# items format:  MATERIAL:AMOUNT CHANCE
+#   AMOUNT  → stack size 1–64       (optional, default 1)
+#   CHANCE  → 0.0–100.0% per item   (optional, default 100.0)
+# ─────────────────────────────────────────
+nbt:
+  nbt1:
+    structure: chest
+    items:
+      - DIAMOND:2 50.0
+      - IRON_INGOT:10 80.0
+      - GOLD_INGOT:5 60.0
+  nbt2:
+    structure: barrel
+    items:
+      - EMERALD:3 40.0
+      - LAPIS_LAZULI:8 90.0
+      - REDSTONE:16 75.0
+  nbt3:
+    structure: trapped_chest
+    items:
+      - NETHERITE_SCRAP:1 25.0
+      - ANCIENT_DEBRIS:1 15.0
+      - DIAMOND:1 50.0
+  common_loot:
+    structure: hopper
+    items:
+      - COAL:32 100.0
+      - STICK:8 100.0
+      - OAK_LOG:4 70.0
+
+# ─────────────────────────────────────────
+# Blocks & Spawn Chances
+#
+# Format:
+#   BLOCK_MATERIAL:
+#     chance: <0.0 - 100.0>    percentage to spawn the container at all
+#     nbt: <nbt_name|random>   which loot table to use
+# ─────────────────────────────────────────
+blocks:
+  DIAMOND_ORE:
+    chance: 50.0
+    nbt: nbt1
+  DEEPSLATE_DIAMOND_ORE:
+    chance: 50.0
+    nbt: nbt1
+  IRON_ORE:
+    chance: 10.0
+    nbt: nbt2
+  DEEPSLATE_IRON_ORE:
+    chance: 10.0
+    nbt: nbt2
+  STONE:
+    chance: 1.0
+    nbt: common_loot
+  EMERALD_ORE:
+    chance: 0.5
+    nbt: nbt3
+  DEEPSLATE_EMERALD_ORE:
+    chance: 0.5
+    nbt: nbt3
+  GOLD_ORE:
+    chance: 15.0
+    nbt: random
+  COAL_ORE:
+    chance: 5.0
+    nbt: random
