@@ -16,7 +16,6 @@
 #             red_shulker_box | black_shulker_box
 #   Copper*:  copper_chest | exposed_copper_chest
 #             weathered_copper_chest | oxidized_copper_chest
-#   * Copper chests require a mod/datapack — falls back to chest on vanilla.
 #   The container always faces toward the player who mined the block.
 #
 # items format:  MATERIAL:AMOUNT CHANCE
